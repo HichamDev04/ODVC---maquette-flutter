@@ -1,0 +1,6 @@
+package fr.robicopstudio.odvc
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
