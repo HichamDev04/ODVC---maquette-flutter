@@ -62,7 +62,7 @@ class _CardPlayerState extends State<CardPlayer> with WidgetsBindingObserver {
                               fit: BoxFit.fill,
                               child: Image.asset(widget.card.imagePath))),
                     ),
-                    Center(
+                    const Center(
                       child: AspectRatio(
                         aspectRatio: 1.0,
                         child: Padding(

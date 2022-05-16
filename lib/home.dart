@@ -23,7 +23,8 @@ class _HomePageState extends State<HomePage> {
     card_item.Card("assets/images/vl9jxlgm.bmp", "Océan"),
     card_item.Card("assets/images/vl9jxlgm.bmp", "Bar")
   ];
-  card_item.Card cardSelected = card_item.Card("assets/images/vl9jxlgm.bmp", "Désert");
+  card_item.Card cardSelected =
+      card_item.Card("assets/images/vl9jxlgm.bmp", "Désert");
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
+              //Display the cards carousel
               Container(
                   margin: const EdgeInsets.symmetric(vertical: 80),
                   child: Carousel(
@@ -49,21 +51,16 @@ class _HomePageState extends State<HomePage> {
                         cardSelected = card;
                       });
                     },
-                  ) /*AspectRatio(
-                  aspectRatio: 2,
-                  child: Center(
-                    child: CardItem(imagePath: "images/vl9jxlgm.bmp", onCardSelected: () {},),
-                  ),
-                ),*/
-                  ),
+                  )),
+              //Display the selected card's name and play it
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CardPlayer(
-                                card: cardSelected)));
+                            builder: (context) =>
+                                CardPlayer(card: cardSelected)));
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -81,14 +78,14 @@ class _HomePageState extends State<HomePage> {
                   style: ElevatedButton.styleFrom(padding: EdgeInsets.all(15)),
                 ),
               ),
+              //Select a random card
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 40.0),
                 child: Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      Provider.of<RandomCardNotifier>(context, listen: false).selectAtRandom();/*CardPlayer(
-                                  card: cards[Random.secure()
-                                      .nextInt(cards.length)])*/
+                      Provider.of<RandomCardNotifier>(context, listen: false)
+                          .selectAtRandom();
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -114,6 +111,7 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
       ),
+      //Display button about alex
       floatingActionButton: FloatingActionButton.extended(
         label: const Text("À propos d'Alex"),
         icon: const Icon(Icons.info_outline),
